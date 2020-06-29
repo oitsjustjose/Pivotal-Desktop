@@ -2,9 +2,9 @@
     "name": "pivotal_desktop",
     "version": "1.0.0",
     "description": "A cross-platform dedicated Pivotal Tracker app",
-    "main": "./app.js",
+    "main": "./js/app.js",
     "scripts": {
-        "start": "electron ./dist/app.js",
+        "start": "electron ./js/app.js",
         "build": "sh build.sh"
     },
     "repository": {
