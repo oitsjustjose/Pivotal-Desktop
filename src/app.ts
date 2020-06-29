@@ -1,7 +1,9 @@
-import electron, { BrowserWindow, shell } from 'electron'
+import electron, { BrowserWindow, shell, Menu } from 'electron'
 import contextMenu from 'electron-context-menu'
 import path from 'path'
+
 import { get as getWindow, set as setWindow } from './window'
+import { template } from './menu'
 
 const app = electron.app
 
@@ -83,6 +85,6 @@ app.on('ready', () => {
             showInspectElement: true
         })
     }
-
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template))
     init()
 })
