@@ -1,0 +1,67 @@
+{
+    "name": "pivotal_desktop",
+    "version": "1.0.0",
+    "description": "A cross-platform dedicated Pivotal Tracker app",
+    "main": "./app.js",
+    "scripts": {
+        "start": "electron ./dist/app.js",
+        "build": "sh build.sh"
+    },
+    "repository": {
+        "type": "GitHub",
+        "url": "https://github.com/oitsjustjose/pivotal-desktop"
+    },
+    "keywords": [
+        "Electron"
+    ],
+    "author": "Jose Stovall [oitsjustjose]",
+    "license": "CC0-1.0",
+    "devDependencies": {
+        "@types/electron": "^1.6.10",
+        "@types/electron-builder": "^2.8.0",
+        "electron": "^4.2.12",
+        "electron-builder": "^20.44.4",
+        "typescript": "^3.9.5"
+    },
+    "dependencies": {
+        "electron-context-menu": "^0.12.1"
+    },
+    "build": {
+        "extends": null,
+        "appId": "com.oitsjustjose.pivotaldesktop",
+        "artifactName": "Pivotal Desktop-${version}.${ext}",
+        "productName": "Pivotal Desktop",
+        "appImage": {
+            "category": "public.app-category.productivity"
+        },
+        "mac": {
+            "category": "public.app-category.productivity",
+            "icon": "assets/icons/macOS/pivotal.icns"
+        },
+        "win": {
+            "icon": "assets/icons/win/pivotal.ico"
+        },
+        "linux": {
+            "icon": "assets/icons/png/pivotal.png"
+        },
+        "deb": {
+            "icon": "assets/icons/png/pivotal.png"
+        },
+        "snap": {},
+        "pacman": {
+            "icon": "assets/icons/png/pivotal.png"
+        },
+        "rpm": {
+            "icon": "assets/icons/png/pivotal.png"
+        },
+        "freebsd": {
+            "icon": "assets/icons/png/pivotal.png"
+        },
+        "p5p": {
+            "icon": "assets/icons/png/pivotal.png"
+        },
+        "apk": {
+            "icon": "assets/icons/png/pivotal.png"
+        }
+    }
+}
