@@ -36,7 +36,8 @@
         },
         "mac": {
             "category": "public.app-category.productivity",
-            "icon": "assets/icons/macOS/pivotal.icns"
+            "icon": "assets/icons/macOS/pivotal.icns",
+            "darkModeSupport": true
         },
         "win": {
             "icon": "assets/icons/win/pivotal.ico"
