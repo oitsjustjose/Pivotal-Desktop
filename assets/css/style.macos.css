@@ -1,0 +1,7 @@
+.page_header_container {
+    -webkit-app-region: drag;
+}
+
+.page_header_container ul {
+    margin-left: 56px;
+}

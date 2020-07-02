@@ -1,4 +1,4 @@
-import Store from './store'
+import Store from '../utils/store'
 
 const store = new Store({
     configName: 'window-settings',

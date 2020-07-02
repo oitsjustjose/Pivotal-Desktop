@@ -1,13 +1,15 @@
-import electron, { BrowserWindow, shell, Menu } from 'electron'
+import electron, { BrowserWindow, ipcMain, Menu, shell } from 'electron'
 import contextMenu from 'electron-context-menu'
+import WinBadge from 'electron-windows-badge'
 import path from 'path'
-
-import { get as getWindow, set as setWindow } from './window'
-import { template } from './menu'
+import * as CSS from './app/css'
+import { get as getWindow, set as setWindow } from './app/window'
+import { template } from './utils/menu'
 
 const app = electron.app
 
-let mainWindow: BrowserWindow | null;
+let mainWindow: BrowserWindow | null
+let badge: any | null = null
 
 const init = () => {
     const winPref = getWindow()
@@ -17,12 +19,16 @@ const init = () => {
         y: winPref.y,
         width: winPref.width,
         height: winPref.height,
-        icon: path.join(__dirname, 'assets', 'icons', 'png', 'pivotal.png'),
+        icon: path.resolve(`${path.dirname(require.main!.filename)}/../assets/icons/png/pivotal.png`),
         show: process.platform != 'darwin',
+        transparent: process.platform == 'darwin',
+        frame: process.platform != 'darwin' && process.platform != 'win32',
+        titleBarStyle: 'hidden',
         webPreferences: {
             nodeIntegration: false,
-            nativeWindowOpen: true
-        }
+            nativeWindowOpen: true,
+            preload: `${__dirname}/preload`
+        },
     })
 
     mainWindow.loadURL('https://pivotaltracker.com')
@@ -34,6 +40,12 @@ const init = () => {
             mainWindow?.loadURL(url)
         } else {
             shell.openExternal(url)
+        }
+    })
+
+    mainWindow.webContents.on('dom-ready', () => {
+        if (mainWindow) {
+            CSS.inject(mainWindow)
         }
     })
 
@@ -56,6 +68,17 @@ const init = () => {
         mainWindow?.focus()
     })
 }
+
+ipcMain.on('unread', (_: any, cnt: number) => {
+    if (process.platform == 'darwin' && mainWindow) {
+        app.dock.setBadge(cnt > 0 ? `${cnt}` : ``)
+    } else if (process.platform == 'win32' && mainWindow) {
+        if (!badge) {
+            badge = new WinBadge(mainWindow)
+        }
+        badge.update(cnt)
+    }
+})
 
 app.setName('Pivotal Desktop')
 app.on('window-all-closed', () => {
