@@ -24,7 +24,8 @@
         "typescript": "^3.9.5"
     },
     "dependencies": {
-        "electron-context-menu": "^0.12.1"
+        "electron-context-menu": "^0.12.1",
+        "electron-windows-badge": "^1.0.5"
     },
     "build": {
         "extends": null,
