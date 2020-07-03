@@ -21,7 +21,7 @@
     "@types/electron-builder": "^2.8.0",
     "electron": "^9.0.5",
     "electron-builder": "^22.7.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.6"
   },
   "dependencies": {
     "electron-context-menu": "^0.12.1",

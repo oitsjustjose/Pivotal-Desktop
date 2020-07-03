@@ -13,7 +13,7 @@ export const template: Array<MenuItemConstructorOptions> = [{
         role: 'hide'
     },
     {
-        role: 'hideothers'
+        role: 'hideOthers'
     },
     {
         role: 'unhide'
@@ -33,15 +33,15 @@ export const template: Array<MenuItemConstructorOptions> = [{
         { role: 'cut' },
         { role: 'copy' },
         { role: 'paste' },
-        { role: 'pasteandmatchstyle' },
+        { role: 'pasteAndMatchStyle' },
         { role: 'delete' },
-        { role: 'selectall' }
+        { role: 'selectAll' }
     ]
 }, {
     label: 'Go',
     submenu: [{
         role: 'reload'
     }, {
-        role: 'forcereload'
+        role: 'forceReload'
     }]
 }]
