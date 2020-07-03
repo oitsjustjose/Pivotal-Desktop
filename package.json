@@ -33,7 +33,7 @@
     "artifactName": "Pivotal Desktop-${version}.${ext}",
     "productName": "Pivotal Desktop",
     "electronDownload": {
-      "cache": "... path ..."
+      "cache": "./cache"
     },
     "appImage": {
       "category": "public.app-category.productivity"
