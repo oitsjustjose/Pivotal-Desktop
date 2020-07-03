@@ -32,6 +32,9 @@
     "appId": "com.oitsjustjose.pivotaldesktop",
     "artifactName": "Pivotal Desktop-${version}.${ext}",
     "productName": "Pivotal Desktop",
+    "electronDownload": {
+      "cache": "... path ..."
+    },
     "appImage": {
       "category": "public.app-category.productivity"
     },
