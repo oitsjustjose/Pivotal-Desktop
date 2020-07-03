@@ -5,7 +5,7 @@
   "main": "./js/app.js",
   "scripts": {
     "start": "electron ./js/app.js",
-    "build": "sh build.sh"
+    "build": "tsc"
   },
   "repository": {
     "type": "GitHub",
