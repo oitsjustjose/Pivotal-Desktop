@@ -19,8 +19,8 @@
   "devDependencies": {
     "@types/electron": "^1.6.10",
     "@types/electron-builder": "^2.8.0",
-    "electron": "^4.2.12",
-    "electron-builder": "^20.44.4",
+    "electron": "^9.0.5",
+    "electron-builder": "^22.7.0",
     "typescript": "^3.9.5"
   },
   "dependencies": {
