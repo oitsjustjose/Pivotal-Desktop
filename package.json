@@ -23,7 +23,6 @@
   "author": "Jose Stovall [oitsjustjose]",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@types/electron": "^1.6.10",
     "@types/electron-builder": "^2.8.0",
     "electron": "^9.0.5",
     "electron-builder": "^22.7.0",
