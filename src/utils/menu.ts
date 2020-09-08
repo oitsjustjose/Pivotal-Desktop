@@ -2,28 +2,18 @@ import { MenuItemConstructorOptions } from "electron"
 
 export const template: Array<MenuItemConstructorOptions> = [{
     label: 'Pivotal Tracker',
-    submenu: [{
-        label: 'About Pivotal Desktop',
-        role: 'about'
-    },
-    {
-        type: 'separator'
-    },
-    {
-        role: 'hide'
-    },
-    {
-        role: 'hideOthers'
-    },
-    {
-        role: 'unhide'
-    },
-    {
-        type: 'separator'
-    },
-    {
-        role: 'quit'
-    }]
+    submenu: [
+        {
+            label: 'About Pivotal Desktop',
+            role: 'about'
+        },
+        { type: 'separator' },
+        { role: 'hide' },
+        { role: 'hideOthers' },
+        { role: 'unhide' },
+        { type: 'separator' },
+        { role: 'quit' }
+    ]
 }, {
     label: 'Edit',
     submenu: [
@@ -36,6 +26,13 @@ export const template: Array<MenuItemConstructorOptions> = [{
         { role: 'pasteAndMatchStyle' },
         { role: 'delete' },
         { role: 'selectAll' }
+    ]
+}, {
+    label: 'View',
+    submenu: [
+        {
+            role: 'toggleDevTools',
+        }
     ]
 }, {
     label: 'Go',
