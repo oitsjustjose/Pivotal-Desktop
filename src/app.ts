@@ -1,9 +1,10 @@
-import electron, { BrowserWindow, ipcMain, Menu, shell } from 'electron'
+import electron, { BrowserWindow, ipcMain, Menu, Notification, shell } from 'electron'
 import contextMenu from 'electron-context-menu'
 import WinBadge from 'electron-windows-badge'
 import path from 'path'
 import * as CSS from './app/css'
 import { get as getWindow, set as setWindow } from './app/window'
+import { PreloadNotification } from './modules/types'
 import { template } from './utils/menu'
 
 const app = electron.app
@@ -69,7 +70,7 @@ const init = () => {
     })
 }
 
-ipcMain.on('unread', (_: any, cnt: number) => {
+ipcMain.on('unread', (_: any, cnt: number, notifs: string[]) => {
     if (process.platform == 'darwin' && mainWindow) {
         app.dock.setBadge(cnt > 0 ? `${cnt}` : ``)
     } else if (process.platform == 'win32' && mainWindow) {
@@ -78,6 +79,18 @@ ipcMain.on('unread', (_: any, cnt: number) => {
         }
         badge.update(cnt)
     }
+})
+
+ipcMain.on('notification', (_: any, notifs: PreloadNotification[]) => {
+    notifs.forEach((notif) => {
+        const notification = new Notification({
+            title: notif.title,
+            body: notif.body,
+            silent: false,
+            icon: path.resolve(`${path.dirname(require.main!.filename)}/../assets/icons/png/pivotal.png`),
+        })
+        notification.show()
+    })
 })
 
 app.setName('Pivotal Desktop')
