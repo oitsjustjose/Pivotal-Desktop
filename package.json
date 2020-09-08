@@ -4,8 +4,14 @@
   "description": "A cross-platform dedicated Pivotal Tracker app",
   "main": "./js/app.js",
   "scripts": {
-    "start": "electron ./js/app.js",
-    "build": "tsc"
+    "dev": "tsc && electron ./js/app",
+    "build": "tsc",
+    "clean": "rm -r node_modules && rm -r js",
+    "dist": "sh ./scripts/build.sh",
+    "dist:mac": "electron-builder --mac",
+    "dist:allother": "$SHELL ./scripts/docker.sh",
+    "dist:snapcraft": "snapcraft push --release=stable ./dist/Gmail\\ Desktop-*.snap",
+    "dist:all": "npm run dist:allother; npm run dist:mac; npm run dist:snapcraft"
   },
   "repository": {
     "type": "GitHub",
