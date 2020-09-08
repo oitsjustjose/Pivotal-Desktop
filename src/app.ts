@@ -27,7 +27,7 @@ const init = () => {
         webPreferences: {
             nodeIntegration: false,
             nativeWindowOpen: true,
-            preload: `${__dirname}/preload`
+            preload: `${__dirname}/app/preload`
         },
     })
 
