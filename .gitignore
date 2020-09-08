@@ -6,5 +6,6 @@ dist
 **/*.js
 
 .vscode
+cache
 
 **/tsconfig.tsbuildinfo
