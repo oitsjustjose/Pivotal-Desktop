@@ -3,7 +3,7 @@ import contextMenu from 'electron-context-menu'
 import WinBadge from 'electron-windows-badge'
 import path from 'path'
 import * as CSS from './app/css'
-import { get as getWindow, set as setWindow } from './app/window'
+import { getWindow, setWindow, getAutoHideSetting } from './app/window'
 import { PreloadNotification } from './modules/types'
 import { template } from './utils/menu'
 
@@ -23,14 +23,19 @@ const init = () => {
         icon: path.resolve(`${path.dirname(require.main!.filename)}/../assets/icons/png/pivotal.png`),
         show: process.platform != 'darwin',
         transparent: process.platform == 'darwin',
-        frame: process.platform != 'darwin' && process.platform != 'win32',
-        titleBarStyle: 'hidden',
+        frame: process.platform != 'darwin',
+        titleBarStyle: process.platform == 'darwin' ? 'hidden' : 'default',
         webPreferences: {
             nodeIntegration: false,
             nativeWindowOpen: true,
             preload: `${__dirname}/app/preload`
         },
     })
+
+    if (getAutoHideSetting()) {
+        mainWindow.setAutoHideMenuBar(true)
+        mainWindow.setMenuBarVisibility(false)
+    }
 
     mainWindow.loadURL('https://pivotaltracker.com')
 

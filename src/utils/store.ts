@@ -7,7 +7,8 @@ interface StorageOptionsDefaults {
     width: number,
     height: number,
     x: number,
-    y: number
+    y: number,
+    autohideMenu: boolean
 }
 
 interface StorageOptions {
