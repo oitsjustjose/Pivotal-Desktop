@@ -1,7 +1,6 @@
 import electron from 'electron'
 import path from 'path'
 import fs from 'fs'
-import { isToken } from 'typescript'
 
 interface StorageOptionsDefaults {
     width: number,
