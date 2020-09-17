@@ -1,5 +1,4 @@
 import { app, MenuItemConstructorOptions } from 'electron'
-import { preProcessFile } from 'typescript'
 import { getAutoHideSetting, setAutoHide } from "../app/window"
 
 export const template: MenuItemConstructorOptions[] = [
